@@ -19,3 +19,10 @@ spec:
     automated:
       prune: true
       selfHeal: true
+    hooks:
+    - type: PreSync
+      resource:
+        apiVersion: v1
+        kind: Namespace
+        metadata:
+          name: prometheus
