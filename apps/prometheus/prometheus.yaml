@@ -10,7 +10,7 @@ spec:
       targetRevision: main
       ref: prometheus-repo
     - chart: prometheus
-      targetRevision: v3.0.0
+      targetRevision: 26.0.0
       repoURL: 'https://prometheus-community.github.io/helm-charts'
       helm:
         valueFiles:
