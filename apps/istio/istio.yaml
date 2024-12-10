@@ -9,9 +9,9 @@ spec:
     - repoURL: 'git@github.com:subzone/argocd-app-of-apps.git'
       targetRevision: main
       ref: prometheus-repo
-    - chart: istio-base
+    - chart: istiod
       repoURL: 'https://istio-release.storage.googleapis.com/charts'
-      targetRevision: 1.14.6  # Update this to a valid version
+      targetRevision: 1.24.0  # Update this to a valid version
       helm:
         valueFiles:
           - $prometheus-repo/apps/istio/values.yaml
