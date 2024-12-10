@@ -11,10 +11,10 @@ spec:
       ref: prometheus-repo
     - chart: loki
       repoURL: 'https://grafana.github.io/helm-charts'
-      targetRevision: 2.8.0  # Update this to a valid version
+      targetRevision: 3.3.0  # Update this to a valid version
       helm:
         valueFiles:
-          - $prometheus-repo/apps/loki/values.yaml
+          - $prometheus-repo/apps/grafana-loki/values/values.yaml
   destination:
     server: 'https://kubernetes.default.svc'
     namespace: loki
