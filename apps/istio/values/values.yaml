@@ -1,0 +1,7 @@
+# apps/istio/values.yaml
+global:
+  proxy:
+    autoInject: enabled
+    logLevel: info
+pilot:
+  traceSampling: 100
