@@ -1,0 +1,26 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: loki
+  namespace: argocd
+spec:
+  project: argo-app-of-apps
+  sources:
+    - repoURL: 'git@github.com:subzone/argocd-app-of-apps.git'
+      targetRevision: main
+      ref: prometheus-repo
+    - chart: loki
+      repoURL: 'https://grafana.github.io/helm-charts'
+      targetRevision: 2.8.0  # Update this to a valid version
+      helm:
+        valueFiles:
+          - $prometheus-repo/apps/loki/values.yaml
+  destination:
+    server: 'https://kubernetes.default.svc'
+    namespace: loki
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+  syncOptions:
+  - CreateNamespace=true
