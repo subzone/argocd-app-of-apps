@@ -4,7 +4,7 @@ metadata:
   name: parent-app
   namespace: argocd
 spec:
-  project: default
+  project: argo-app-of-apps
   source:
     repoURL: 'git@github.com:subzone/argocd-app-of-apps.git'
     targetRevision: main
