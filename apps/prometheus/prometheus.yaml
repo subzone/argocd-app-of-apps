@@ -2,9 +2,9 @@ apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
   name: prometheus
-  namespace: argoappofapps
+  namespace: argocd
 spec:
-  project: prometheus
+  project: argo-app-of-apps
   source:
     repoURL: 'https://prometheus-community.github.io/helm-charts'
     chart: prometheus
@@ -26,4 +26,3 @@ spec:
         kind: Namespace
         metadata:
           name: prometheus
----
