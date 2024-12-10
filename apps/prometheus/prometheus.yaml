@@ -26,3 +26,36 @@ spec:
         kind: Namespace
         metadata:
           name: prometheus
+---
+apiVersion: argoproj.io/v1alpha1
+kind: AppProject
+metadata:
+  name: prometheus
+  namespace: argocd
+spec:
+  description: Prometheus project
+  sourceRepos:
+    - 'git@github.com:subzone/argocd-app-of-apps.git'
+  destinations:
+    - namespace: '*'
+      server: 'https://kubernetes.default.svc'
+  clusterResourceWhitelist:
+    - group: '*'
+      kind: '*'
+  namespaceResourceWhitelist:
+    - group: '*'
+      kind: '*'
+  syncWindows:
+    - kind: SyncWindow
+      schedule: "0 22 * * *"
+      duration: "2h"
+      applications:
+        - '*'
+      manualSync: true
+  roles:
+    - name: admin
+      description: Admin role with full access
+      policies:
+        - p, proj:prometheus:admin, applications, *, prometheus/*, allow
+      groups:
+        - my-admin-group
