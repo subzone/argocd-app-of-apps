@@ -5,14 +5,16 @@ metadata:
   namespace: argocd
 spec:
   project: argo-app-of-apps
-  source:
-    repoURL: 'https://prometheus-community.github.io/helm-charts'
-    chart: prometheus
-    ref: prometheus-repo
-    targetRevision: v3.0.0
-    helm:
-      valueFiles:
-        - $prometheus-repo/apps/prometheus/values/values.yaml
+  sources:
+    - repoURL: 'git@github.com:subzone/argocd-app-of-apps.git'
+      targetRevision: main
+      ref: prometheus-repo
+    - chart: prometheus
+      targetRevision: v3.0.0
+      repoURL: 'https://prometheus-community.github.io/helm-charts'
+      helm:
+        valueFiles:
+          - $prometheus-repo/apps/prometheus/values/values.yaml
   destination:
     server: 'https://kubernetes.default.svc'
     namespace: prometheus
