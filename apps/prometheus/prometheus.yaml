@@ -8,10 +8,11 @@ spec:
   source:
     repoURL: 'https://prometheus-community.github.io/helm-charts'
     chart: prometheus
+    ref: prometheus-repo
     targetRevision: v3.0.0
     helm:
       valueFiles:
-        - apps/prometheus/values/values.yaml
+        - $prometheus-repo/apps/prometheus/values/values.yaml
   destination:
     server: 'https://kubernetes.default.svc'
     namespace: prometheus
