@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: prometheus
+  name: grafana
   namespace: argocd
 spec:
   project: argo-app-of-apps
@@ -9,15 +9,15 @@ spec:
     - repoURL: 'git@github.com:subzone/argocd-app-of-apps.git'
       targetRevision: main
       ref: prometheus-repo
-    - chart: prometheus
-      targetRevision: 26.0.0
-      repoURL: 'https://prometheus-community.github.io/helm-charts'
+    - chart: grafana    
+      repoURL: 'https://grafana.github.io/helm-charts'
+      targetRevision: 6.17.4  # Update this to a valid version
       helm:
         valueFiles:
-          - $prometheus-repo/apps/prometheus/values/values.yaml
+          - $prometheus-repo/apps/grafana/values.yaml
   destination:
     server: 'https://kubernetes.default.svc'
-    namespace: prometheus
+    namespace: grafana
   syncPolicy:
     automated:
       prune: true
