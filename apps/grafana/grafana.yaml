@@ -14,7 +14,7 @@ spec:
       targetRevision: 6.17.4  # Update this to a valid version
       helm:
         valueFiles:
-          - $prometheus-repo/apps/grafana/values.yaml
+          - $prometheus-repo/apps/grafana/values/values.yaml
   destination:
     server: 'https://kubernetes.default.svc'
     namespace: grafana

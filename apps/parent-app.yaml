@@ -24,9 +24,9 @@ spec:
     - repoURL: 'git@github.com:subzone/argocd-app-of-apps.git'
       targetRevision: main
       path: apps/prometheus
-    # - repoURL: 'git@github.com:subzone/argocd-app-of-apps.git'
-    #   targetRevision: main
-    #   path: apps/grafana
+    - repoURL: 'git@github.com:subzone/argocd-app-of-apps.git'
+      targetRevision: main
+      path: apps/grafana
     # - repoURL: 'git@github.com:subzone/argocd-app-of-apps.git'
     #   targetRevision: main
     #   path: apps/grafana-loki
