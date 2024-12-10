@@ -11,7 +11,7 @@ spec:
     path: apps
   destination:
     server: 'https://kubernetes.default.svc'
-    namespace: default
+    namespace: argocd
   syncPolicy:
     automated:
       prune: true
@@ -20,7 +20,10 @@ spec:
   sources:
     - repoURL: 'git@github.com:subzone/argocd-app-of-apps.git'
       targetRevision: main
-      path: apps/prometheus.yaml
+      path: apps
+    - repoURL: 'git@github.com:subzone/argocd-app-of-apps.git'
+      targetRevision: main
+      path: apps/prometheus
     - repoURL: 'git@github.com:subzone/argocd-app-of-apps.git'
       targetRevision: main
       path: apps/grafana

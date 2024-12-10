@@ -3,7 +3,7 @@ kind: Application
 metadata:
   name: prometheus
   namespace: argocd
-specs:
+spec:
   project: default
   source:
     repoURL: 'https://prometheus-community.github.io/helm-charts'
