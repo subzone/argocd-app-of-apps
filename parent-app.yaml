@@ -19,11 +19,11 @@ spec:
   # Define the child applications
   sources:
     - repoURL: 'git@github.com:subzone/argocd-app-of-apps.git'
-      targetRevision: HEAD
-      path: apps/prometheus
+      targetRevision: main
+      path: apps/prometheus.yaml
     - repoURL: 'git@github.com:subzone/argocd-app-of-apps.git'
-      targetRevision: HEAD
+      targetRevision: main
       path: apps/grafana
     - repoURL: 'git@github.com:subzone/argocd-app-of-apps.git'
-      targetRevision: HEAD
+      targetRevision: main
       path: apps/grafana-loki
