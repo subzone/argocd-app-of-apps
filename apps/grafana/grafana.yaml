@@ -11,7 +11,7 @@ spec:
       ref: prometheus-repo
     - chart: grafana    
       repoURL: 'https://grafana.github.io/helm-charts'
-      targetRevision: 6.17.4  # Update this to a valid version
+      targetRevision: 8.6.4  # Update this to a valid version
       helm:
         valueFiles:
           - $prometheus-repo/apps/grafana/values/values.yaml
