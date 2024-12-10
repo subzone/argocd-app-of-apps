@@ -11,7 +11,7 @@ spec:
       ref: prometheus-repo
     - chart: istio-base
       repoURL: 'https://istio-release.storage.googleapis.com/charts'
-      targetRevision: 1.13.2  # Update this to a valid version
+      targetRevision: 1.14.6  # Update this to a valid version
       helm:
         valueFiles:
           - $prometheus-repo/apps/istio/values.yaml
