@@ -7,7 +7,7 @@ spec:
   project: argo-app-of-apps
   source:
     repoURL: 'https://prometheus-community.github.io/helm-charts'
-    chart: prometheus-community/prometheus
+    chart: prometheus
     targetRevision: 26.0.0
     helm:
       valueFiles:
