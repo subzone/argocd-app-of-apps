@@ -1,10 +1,18 @@
 # apps/grafana/values.yaml
 datasources:
-  datasources.yaml:
+  datasources-prometheus.yaml:
     apiVersion: 1
     datasources:
       - name: Prometheus
         type: prometheus
         url: http://prometheus-server.prometheus.svc.cluster.local
+        access: proxy
+        isDefault: true
+  datasources-loki.yaml:
+    apiVersion: 1
+    datasources:
+      - name: Loki
+        type: loki
+        url: http://loki.loki.svc.cluster.local:3100
         access: proxy
         isDefault: true
