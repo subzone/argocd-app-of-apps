@@ -15,4 +15,4 @@ datasources:
         type: loki
         url: http://loki.loki.svc.cluster.local:3100
         access: proxy
-        isDefault: true
+        isDefault: false
