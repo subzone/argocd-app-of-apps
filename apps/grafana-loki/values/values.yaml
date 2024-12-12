@@ -1,5 +1,7 @@
 # apps/grafana-loki/values.yaml
 loki:
+  servicemonitor:
+    enabled: false
   config: |
     auth_enabled: false
     server:
@@ -40,3 +42,5 @@ persistence:
   accessModes:
     - ReadWriteOnce
   size: 10Gi
+
+
