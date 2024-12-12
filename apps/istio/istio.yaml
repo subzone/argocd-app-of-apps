@@ -31,3 +31,57 @@ spec:
         kind: Namespace
         metadata:
           name: istio-system
+---
+# apps/istio/gateway.yaml
+apiVersion: networking.istio.io/v1alpha3
+kind: Gateway
+metadata:
+  name: gateway
+  namespace: istio-system
+spec:
+  selector:
+    istio: ingressgateway # use Istio default gateway implementation
+  servers:
+  - port:
+      number: 80
+      name: http
+      protocol: HTTP
+    hosts:
+    - "*"
+---
+# apps/istio/virtualservice.yaml
+apiVersion: networking.istio.io/v1alpha3
+kind: VirtualService
+metadata:
+  name: istio-virtualservice
+  namespace: istio-system
+spec:
+  hosts:
+  - "*"
+  gateways:
+  - gateway
+  http:
+  - match:
+    - uri:
+        prefix: /prometheus
+    route:
+    - destination:
+        host: prometheus-server.prometheus.svc.cluster.local
+        port:
+          number: 9090
+  - match:
+    - uri:
+        prefix: /grafana
+    route:
+    - destination:
+        host: grafana.grafana.svc.cluster.local
+        port:
+          number: 3000
+  - match:
+    - uri:
+        prefix: /loki
+    route:
+    - destination:
+        host: loki.loki.svc.cluster.local
+        port:
+          number: 3100
