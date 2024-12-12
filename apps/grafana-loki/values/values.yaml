@@ -18,11 +18,11 @@ loki:
             period: 24h
     storage_config:
       boltdb_shipper:
-        active_index_directory: /loki/index
-        cache_location: /loki/cache
+        active_index_directory: /data/loki/index
+        cache_location: /data/loki/cache
         shared_store: filesystem
       filesystem:
-        directory: /loki/chunks
+        directory: /data/loki/chunks
     limits_config:
       enforce_metric_name: false
       reject_old_samples: true
@@ -31,3 +31,12 @@ loki:
       max_look_back_period: 0s
     table_manager:
       retention_deletes_enabled: true
+      retention_period: 168h
+
+# Ensure the storage paths are writable
+persistence:
+  enabled: true
+  storageClassName: "standard"  # Update this to your storage class
+  accessModes:
+    - ReadWriteOnce
+  size: 10Gi
