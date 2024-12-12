@@ -5,3 +5,19 @@ global:
     logLevel: info
 pilot:
   traceSampling: 100
+
+# Enable CRDs installation
+istio_cni:
+  enabled: true
+
+# Enable Kiali
+kiali:
+  enabled: true
+  dashboard:
+    auth:
+      strategy: anonymous
+
+# Enable Jaeger
+tracing:
+  enabled: true
+  provider: jaeger
