@@ -15,6 +15,18 @@ spec:
       helm:
         valueFiles:
           - $prometheus-repo/apps/istio/values/values.yaml
+    - chart: istio-base
+      repoURL: 'https://istio-release.storage.googleapis.com/charts'
+      targetRevision: 1.24.0  # Update this to a valid version
+      helm:
+        valueFiles:
+          - $prometheus-repo/apps/istio/values/values.yaml
+    - chart: gateway
+      repoUrl: 'https://istio-release.storage.googleapis.com/charts'
+      targetRevision: 1.24.0  # Update this to a valid version
+      helm:
+        valueFiles:
+          - $prometheus-repo/apps/resources/gateway.yaml
   destination:
     server: 'https://kubernetes.default.svc'
     namespace: istio-system
