@@ -33,14 +33,3 @@ spec:
     - repoURL: 'git@github.com:subzone/argocd-app-of-apps.git'
       targetRevision: main
       path: apps/cilium
----
-apiVersion: v1
-kind: Secret
-metadata:
-  labels:
-    argocd.argoproj.io/secret-type: repository
-  name: my-oci-charts
-stringData:
-  enableOCI: "true"
-  type: helm 
-  url: oci://registry-1.docker.io/bitnamicharts/cilium
