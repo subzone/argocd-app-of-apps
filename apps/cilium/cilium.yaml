@@ -17,7 +17,7 @@ spec:
       targetRevision: main
       ref: argo-repo
     - repoURL: 'https://github.com/cilium/charts'
-      chart: cilium/cilium
+      chart: cilium-1.16.4
       targetRevision: 1.16.4 # Update this to a valid version
       helm:
         valueFiles:
