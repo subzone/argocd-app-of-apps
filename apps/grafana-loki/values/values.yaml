@@ -1,7 +1,5 @@
 # apps/grafana-loki/values.yaml
 loki:
-  servicemonitor:
-    enabled: false
   config: |
     auth_enabled: false
     server:
@@ -35,12 +33,9 @@ loki:
       retention_deletes_enabled: true
       retention_period: 168h
 
-# Ensure the storage paths are writable
-persistence:
-  enabled: true
-  storageClassName: "standard"  # Update this to your storage class
-  accessModes:
-    - ReadWriteOnce
-  size: 10Gi
-
-
+  persistence:
+    enabled: true
+    storageClassName: "standard"  # Update this to your storage class
+    accessModes:
+      - ReadWriteOnce
+    size: 10Gi
