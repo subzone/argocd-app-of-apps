@@ -1,14 +1,14 @@
 kind: Namespace
 apiVersion: v1
 metadata:
-  name: cilium
+  name: istio-system
   labels:
-    name: cilium
+    name: istio-system
 ---
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: cilium
+  name: istio
   namespace: argocd
 spec:
   project: argo-app-of-apps
@@ -16,15 +16,15 @@ spec:
     - repoURL: 'git@github.com:subzone/argocd-app-of-apps.git'
       targetRevision: main
       ref: argo-repo
-    - repoURL: 'https://github.com/cilium/cilium'
-      chart: cilium
+    - repoURL: 'https://istio-release.storage.googleapis.com/charts'
+      chart: istio-base
       targetRevision: 1.17.0 # Update this to a valid version
       helm:
         valueFiles:
           - $argo-repo/apps/cilium/values/values.yaml
   destination:
     server: 'https://kubernetes.default.svc'
-    namespace: cilium
+    namespace: istio-system
   syncPolicy:
     automated:
       prune: true
