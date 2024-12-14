@@ -27,6 +27,6 @@ spec:
   - ServerSideApply=true
   ignoreDifferences:
   - group: monitoring.coreos.com
-    kind: ServiceMonitor
+    kind: Prometheus
     jqPathExpressions:
-    - .spec.endpoints[]?.relabelings[]?.action
+    - .spec.remoteWrite[]?.writeRelabelConfigs[]?.action
