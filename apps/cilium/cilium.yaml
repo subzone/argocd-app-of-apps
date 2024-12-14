@@ -24,7 +24,7 @@ spec:
           - $argo-repo/apps/cilium/values/values.yaml
   destination:
     server: 'https://kubernetes.default.svc'
-    namespace: kube-system
+    namespace: cilium
   syncPolicy:
     automated:
       prune: true
