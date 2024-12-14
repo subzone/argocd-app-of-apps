@@ -4,7 +4,7 @@ loki:
       - from: "2024-04-01"
         store: tsdb
         object_store: filesystem
-        schema: v13
+        schema: v11
         index:
           prefix: loki_index_
           period: 24h
