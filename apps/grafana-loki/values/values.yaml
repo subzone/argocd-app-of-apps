@@ -50,3 +50,6 @@ persistence:
   accessModes:
     - ReadWriteOnce
   size: 10Gi
+
+servicemonitor:
+  enabled: false
