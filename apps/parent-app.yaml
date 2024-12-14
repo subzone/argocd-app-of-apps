@@ -16,6 +16,8 @@ spec:
     automated:
       prune: true
       selfHeal: true
+    syncOptions:
+      - ServerSideApply=true
   # Define the child applications
   sources:
     - repoURL: 'git@github.com:subzone/argocd-app-of-apps.git'
