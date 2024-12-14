@@ -1,0 +1,5 @@
+# apps/cilium/values.yaml
+# Example values.yaml for Cilium
+kubeProxyReplacement: strict
+k8sServiceHost: "kubernetes.default.svc"
+k8sServicePort: 443
