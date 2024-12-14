@@ -1,4 +1,6 @@
 loki:
+  servicemonitor:
+  enabled: false
   schemaConfig:
     configs:
       - from: "2024-04-01"
