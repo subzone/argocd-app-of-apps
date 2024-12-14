@@ -16,8 +16,8 @@ spec:
     - repoURL: 'git@github.com:subzone/argocd-app-of-apps.git'
       targetRevision: main
       ref: argo-repo
-    - repoURL: 'https://apecloud.github.io/helm-charts'
-      chart: kubeblocks/cilium
+    - repoURL: 'https://helm.cilium.io'
+      chart: cilium/cilium
       targetRevision: 1.15.1 # Update this to a valid version
       helm:
         valueFiles:
