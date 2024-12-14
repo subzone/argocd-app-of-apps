@@ -1,3 +1,10 @@
+kind: Namespace
+apiVersion: v1
+metadata:
+  name: cilium
+  labels:
+    name: cilium
+---
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
@@ -11,7 +18,7 @@ spec:
       ref: argo-repo
     - repoURL: 'https://helm.cilium.io/'
       chart: cilium
-      targetRevision: 1.13.0  # Update this to a valid version
+      targetRevision: 1.15.1 # Update this to a valid version
       helm:
         valueFiles:
           - $argo-repo/apps/cilium/values/values.yaml
