@@ -16,9 +16,9 @@ spec:
     - repoURL: 'git@github.com:subzone/argocd-app-of-apps.git'
       targetRevision: main
       ref: argo-repo
-    - repoURL: 'https://helm.cilium.io'
+    - repoURL: 'https://github.com/cilium/charts'
       chart: cilium/cilium
-      targetRevision: 1.15.1 # Update this to a valid version
+      targetRevision: 1.16.4 # Update this to a valid version
       helm:
         valueFiles:
           - $argo-repo/apps/cilium/values/values.yaml
