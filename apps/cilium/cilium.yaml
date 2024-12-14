@@ -17,7 +17,7 @@ spec:
       targetRevision: main
       ref: argo-repo
     - repoURL: 'https://apecloud.github.io/helm-charts'
-      chart: cilium
+      chart: kubeblocks/cilium
       targetRevision: 1.15.1 # Update this to a valid version
       helm:
         valueFiles:
