@@ -9,8 +9,8 @@ spec:
     - repoURL: 'git@github.com:subzone/argocd-app-of-apps.git'
       targetRevision: main
       ref: prometheus-repo
-    - chart: cert-manager    
-      repoURL: 'https://github.com/cert-manager/cert-manager'
+    - repoURL: 'https://charts.jetstack.io'
+      chart: cert-manager    
       targetRevision: v1.16.2  # Update this to a valid version
       helm:
         valueFiles:
