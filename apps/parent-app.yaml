@@ -35,3 +35,6 @@ spec:
     - repoURL: 'git@github.com:subzone/argocd-app-of-apps.git'
       targetRevision: main
       path: apps/istio
+    - repoURL: 'git@github.com:subzone/argocd-app-of-apps.git'
+      targetRevision: main
+      path: apps/cert-manager
