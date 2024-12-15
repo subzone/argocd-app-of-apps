@@ -31,15 +31,13 @@ spec:
   syncOptions:
   - CreateNamespace=true
   - ServerSideApply=true
-  # syncOptions:
-  #   - CreateNamespace=true
-  # hooks:
-  #   - type: PreSync
-  #     resource:
-  #       apiVersion: v1
-  #       kind: Namespace
-  #       metadata:
-  #         name: istio-system
+  hooks:
+    - type: PreSync
+      resource:
+        apiVersion: v1
+        kind: Namespace
+        metadata:
+          name: istio-system
 ---
 # apps/istio/gateway.yaml
 apiVersion: networking.istio.io/v1alpha3
