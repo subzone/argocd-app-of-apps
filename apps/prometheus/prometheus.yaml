@@ -1,28 +1,28 @@
-# apiVersion: argoproj.io/v1alpha1
-# kind: Application
-# metadata:
-#   name: prometheus
-#   namespace: argocd
-# spec:
-#   project: argo-app-of-apps
-#   sources:
-#     - repoURL: 'git@github.com:subzone/argocd-app-of-apps.git'
-#       targetRevision: main
-#       ref: prometheus-repo
-#     - chart: prometheus
-#       targetRevision: 26.0.0
-#       repoURL: 'https://prometheus-community.github.io/helm-charts'
-#       helm:
-#         valueFiles:
-#           - $prometheus-repo/apps/prometheus/values/values.yaml
-#   destination:
-#     server: 'https://kubernetes.default.svc'
-#     namespace: prometheus
-#   syncPolicy:
-#     automated:
-#       prune: true
-#       selfHeal: true
-#   syncOptions:
-#   - CreateNamespace=true
-#   - ServerSideApply=true
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: prometheus
+  namespace: argocd
+spec:
+  project: argo-app-of-apps
+  sources:
+    - repoURL: 'git@github.com:subzone/argocd-app-of-apps.git'
+      targetRevision: main
+      ref: prometheus-repo
+    - chart: prometheus
+      targetRevision: 26.0.0
+      repoURL: 'https://prometheus-community.github.io/helm-charts'
+      helm:
+        valueFiles:
+          - $prometheus-repo/apps/prometheus/values/values.yaml
+  destination:
+    server: 'https://kubernetes.default.svc'
+    namespace: prometheus
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+  syncOptions:
+  - CreateNamespace=true
+  - ServerSideApply=true
 
