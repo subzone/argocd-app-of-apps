@@ -1,10 +1,10 @@
 apiVersion: cert-manager.io/v1
 kind: Certificate
 metadata:
-  name: example-com
-  namespace: default
+  name: milenkom-k9s-com
+  namespace: cert-manager
 spec:
-  secretName: example-com-tls
+  secretName: milenkom-k8s-com-tls
   issuerRef:
     name: letsencrypt-prod
     kind: ClusterIssuer
