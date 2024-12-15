@@ -1,7 +1,7 @@
 apiVersion: cert-manager.io/v1
 kind: Certificate
 metadata:
-  name: milenkom-k9s-com
+  name: milenkom-k8s-com
   namespace: cert-manager
 spec:
   secretName: milenkom-k8s-com-tls
